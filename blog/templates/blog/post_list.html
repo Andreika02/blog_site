@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css'%}">
+  <title>Posts list</title>
+</head>
+
+<body>
+  <header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+      <li class="nav-item"><a href="{% url 'post_list' %}" class="nav-link">post_list</a></li>
+      <li class="nav-item"><a href="{% url 'video_list' %}" class="nav-link">video_list</a></li>
+      <li class="nav-item"><a href="{% url 'video_create' %}" class="nav-link">video_create</a></li>
+      <li class="nav-item"><a href="{% url 'mysite' %}" class="nav-link">mysite</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+    </ul>
+  </header>
+  <main class="vh-100">
+    <h1 class="text-center text-dark fw-bold">Posts</h1>
+    <div class="d-flex gap-4 flex-wrap justify-content-center mx-auto" style="max-width: 1000px;">
+      <div class="d-flex gap-4 flex-wrap justify-content-center mx-auto" style="max-width: 800px;">
+        {% for post in posts %}
+        {% if post.is_published == True %}
+        <div class="card" style="width: 18rem;">
+          <img src="{{post.image.url}}" class="card-img-top " height="200" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.text}}</p>
+            <form action="{% url 'post_like' %}" method="post">{% csrf_token %}
+              <input type="hidden" name="post_id" value="{{post.id}}">
+              <button type="submit">
+                <img height="25" width="25" src="{% static 'blog/likes.png'%}" alt="">
+              </button>
+              <span>{{post.likes}}</span>
+            </form>
+          </div>
+
+
+          
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+      </a>
+      <span class="text-muted">© 2024 Andrey, Inc</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+            <use xlink:href="#twitter"></use>
+          </svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+            <use xlink:href="#instagram"></use>
+          </svg></a></li>
+      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
+            <use xlink:href="#facebook"></use>
+          </svg></a></li>
+    </ul>
+  </footer>
+</body>
+
+</html>

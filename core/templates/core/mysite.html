@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+{% load static%}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Орлиная полка</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://wsxzaq127.github.io/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
+
+</head>
+
+<body>
+    <!-- 	<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary"><ya-tr-span data-index="12-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Home" data-translation="Главная" data-ch="1" data-type="trSpan">Главная</ya-tr-span></a></li>
+        <li><a href="#" class="nav-link px-2 link-dark"><ya-tr-span data-index="13-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Features" data-translation="Характеристики" data-ch="1" data-type="trSpan" data-selected="false">Характеристики</ya-tr-span></a></li>
+        <li><a href="#" class="nav-link px-2 link-dark"><ya-tr-span data-index="14-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Pricing" data-translation="Цены" data-ch="1" data-type="trSpan">Цены</ya-tr-span></a></li>
+        <li><a href="#" class="nav-link px-2 link-dark"><ya-tr-span data-index="15-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="FAQs" data-translation="Вопросы и ответы" data-ch="1" data-type="trSpan">Вопросы и ответы</ya-tr-span></a></li>
+        <li><a href="#" class="nav-link px-2 link-dark"><ya-tr-span data-index="16-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="About" data-translation="О нас" data-ch="1" data-type="trSpan">О нас</ya-tr-span></a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2"><ya-tr-span data-index="17-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Login" data-translation="Вход" data-ch="0" data-type="trSpan">Вход</ya-tr-span></button>
+        <button type="button" class="btn btn-primary"><ya-tr-span data-index="17-1" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Sign-up" data-translation="Регистрация" data-ch="0" data-type="trSpan">Регистрация</ya-tr-span></button>
+      </div>
+    </header> -->
+    <header class="header">
+        <div class="container container_header">
+            <div id="time">
+
+            </div>
+            <div class="logo">
+                <img src="{% static 'core/img/img.png' %}" class="logo__img">
+                <h1 class="logo__title">Nature</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link" href="#glavnay">Главная</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#about">О месте</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#video">Видео</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#gallery">Галерея</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#contacts">Контакты</a>
+                    </li>
+                    <!-- <li class="nav__item">
+						<a class="nav__link" href="#">Выход</a>
+					</li> -->
+                    <li class="nav-item"><a href="{% url 'post_list' %}" class="nav-link">post_list</a></li>
+                    <li class="nav-item"><a href="{% url 'video_list' %}" class="nav-link">video_list</a></li>
+                    <li class="nav-item"><a href="{% url 'video_create' %}" class="nav-link">video_create</a></li>
+                </ul>
+            </nav>
+            <div onclick="activeBurger()" class="burger">
+                <div class="burger_line burger__line_1"></div>
+                <div class="burger_line burger__line_2"></div>
+                <div class="burger_line burger__line_3"></div>
+            </div>
+        </div>
+    </header>
+    <ul class="nav__list_bur">
+        <li class="nav__item_bur">
+            <a class="nav__link" href="#glavnay">Главная</a>
+        </li>
+        <li class="nav__item_bur">
+            <a class="nav__link" href="about.html">О месте</a>
+        </li>
+        <li class="nav__item_bur">
+            <a class="nav__link" href="#video">Видео</a>
+        </li>
+        <li class="nav__item_bur">
+            <a class="nav__link" href="#gallery">Галерея</a>
+        </li>
+        <li class="nav__item_bur">
+            <a class="nav__link" href="#contacts">Контакты</a>
+        </li>
+        <li class="nav__item_bur">
+            <a class="nav__link" href="#">Выход</a>
+        </li>
+    </ul>
+    <main>
+        <!-- <div class="glavnai">
+ 	<img class="ghj" src="img/img0.png">
+ 	<div class="text">
+ 	<h2 class="zagolovok">Орлиная полка</h2>
+ 	<p class="textzagolovok">Орлиная полка — скалистый уступ правильной формы естественного происхождения на горе Ленина в Апшеронком районе Краснодарского края России, между хутором Гуамка и северо-западнее поселка Мезмай в 3 км от Гуамского ущелья.</p>
+ 	</div>
+ </div>
+ <div class="secondsection">
+ 	<div class="xnjnj">
+ 		<h2 class="omeste">О месте</h2>
+ 	<p>Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии будут подвергнуты целой серии независимых исследований. Являясь всего лишь частью общей картины, действия представителей оппозиции освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок.</p>
+ 	</div>
+ 	<img class="wsa" src="img/img3.png">
+ </div> -->
+
+
+        <!-- <div class="sss">
+ 	<div class="card bg-warning" style="width: 18rem;">
+  	<img src="img/vk.png" class="card-img-top" alt="...">
+  	<div class="card-body">
+    	<h5 class="card-title text-info bg-waring.bg-gradient">Импотант информатион</h5>
+    	<p class="card-text">Путевки на Орлиную полку уже продают!!! Успей купить!!!</p>
+    	<a href="#" class="btn btn-primary">Подробнее</a>
+  	</div>
+  	</div>
+  	</div> -->
+        <section id="glavnay" class="hero-block">
+            <div class="container hb__wrap">
+                <img class="hero-block__img" src="{% static 'core/img/img0.png' %}" alt="">
+                <div class="hero-block__info">
+                    <h1 class="hero-block__title">Орлиная полка</h1>
+                    <p class="hero-block__text text-success">Орлиная полка — скалистый уступ правильной формы
+                        естественного происхождения на горе Ленина в Апшеронком районе Краснодарского края России, между
+                        хутором Гуамка и северо-западнее поселка Мезмай в 3 км от Гуамского ущелья.</p>
+
+                </div>
+            </div>
+        </section>
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="about__title">О месте</h2>
+                <div class="about__content">
+                    <div class="about__prog">
+                        <p class="prog__text">Красота</p>
+                        <div class="prog__bg">
+                            <div class="prog__fg_0"></div>
+                        </div>
+                        <p class="prog__text">Доступность</p>
+                        <div class="prog__bg">
+                            <div class="prog__fg_1"></div>
+                        </div>
+                    </div>
+                    <img src="{% static 'core/img/img3.png' %}" alt="" class="about__img">
+                </div>
+            </div>
+        </section>
+        <section id="video" class="video">
+            <div class="container video__wrap">
+                <h2 class="video__title">Видео</h2>
+                <div class="video__container">
+                    <div class="video__bg"></div>
+                    <iframe class="video__item" src="https://www.youtube.com/embed/Vq43FX9N5oA"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <section id="gallery" class="gallery">
+            <div class="gallery__wrap">
+                <h2 class="gallery__title">Галерея</h2>
+                <ul class="gallery__list">
+                    <li class="gallery__item">
+                        <a href="img/img10.png" class="lightzoom gallery__link"><img class="gallery__img"
+                                src="{% static 'core/img/img10.png' %}" alt=""></a>
+                    </li>
+                    <li class="gallery__item">
+                        <a href="img/img20.png" class="lightzoom gallery__link"><img class="gallery__img"
+                                src="{% static 'core/img/img20.png' %}" alt=""></a>
+                    </li>
+                    <li class="gallery__item">
+                        <a href="img/img30.png" class="lightzoom gallery__link"><img class="gallery__img"
+                                src="{% static 'core/img/img30.png' %}" alt=""></a>
+                    </li>
+                    <li class="gallery__item">
+                        <a href="img/img40.png" class="lightzoom gallery__link"><img class="gallery__img"
+                                src="{% static 'core/img/img40.png' %}" alt=""></a>
+                    </li>
+                    <li class="gallery__item">
+                        <a href="img/img50.png" class="lightzoom gallery__link"><img class="gallery__img"
+                                src="{% static 'core/img/img50.png' %}" alt=""></a>
+                    </li>
+                    <li class="gallery__item">
+                        <a href="img/img6.png" class="lightzoom gallery__link"><img class="gallery__img"
+                                src="{% static 'core/img/img6.png' %}" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer id="contacts">
+        <div class="footer__container">
+            <div class="footer__text">
+                <h3 class="footer__title">Журавлев Андрей</h3>
+                <p class="footer__prava">&copy; 2024 Все права защищены</p>
+            </div>
+            <div class="footer__icons">
+                <a href="" class="footer__link">
+                    <img src="{% static 'core/img/vk.png' %}" alt="" class="footer__img">
+                </a>
+                <a href="" class="footer__link">
+                    <img src="{% static 'core/img/telegram.png' %}" alt="" class="footer__img">
+                </a>
+                <a href="" class="footer__link">
+                    <img src="{% static 'core/img/discord.png' %}" alt="" class="footer__img">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script type="text/javascript" src="https://wsxzaq127.github.io/lightzoom.js"></script>
+    <script type="text/javascript">
+
+        jQuery('.lightzoom').lightzoom({ speed: 400, viewTitle: true });
+    </script>
+    <script tupe="text/javascript" src="js/burger.js"></script>
+    <!-- <script tupe="text/javascript" src="js/time.js"></script> -->
+    <script src="js/bootstrap.js"></script>
+
+
+</body>
+
+</html>

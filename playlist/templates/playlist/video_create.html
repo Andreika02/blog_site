@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css'%}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'playlist/includes/header.html' %}
+    <main class="vh-100">
+    
+        <h1 class="text-center">Create video</h1>
+    <form method="POST">{% csrf_token %}
+        <input type="Text" name="title" class="form-control mx-auto" style="width: 300px;">
+        <input type="text" name="embed_code" class="form-control mx-auto" style="width: 300px;">
+        <button type="submit" class="btn btn-primary">add</button>
+    </form>
+    
+    </main>
+
+    {% include 'playlist/includes/footer.html' %}
+</body>
+</html>

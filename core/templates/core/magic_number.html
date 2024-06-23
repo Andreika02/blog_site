@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магические числа</title>
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css'%}">
+</head>
+<body>
+    <div class="d-flex flex-column align-items-center justify-content-center">
+    <h1 class="text-center my-auto">MAGIC_NUMBER</h1>
+    <p class="text-center">{{result}}</p>
+    <form action="" method="POST" class="d-flex flex-column gap-2 mx-auto" style="max-width: 150px;">{% csrf_token %}
+        <input class="form-control" type="number" name="number" placeholder="Угадай число">
+        <button type="submit" class="btn btn-primary mx-auto"> Угадай</button>
+    </form>
+    </div>
+</body>
+</html>
+<!-- Методы: get, delete, put, patch, post -->
